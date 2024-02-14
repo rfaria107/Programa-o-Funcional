@@ -315,7 +315,7 @@ removeMSet x ((a,b):t) | x == a && b == 1 = t
                        | x == a = (a,b-1):t
                        | otherwise = (a,b) : removeMSet x t
 
---43 há formas muito mais eficientes de fazer isto
+--43 feito pelo Simão Quintela
 constroiMSet :: Ord a => [a] -> [(a,Int)]
 constroiMSet [] = []
 constroiMSet (h:t) = auxVersao19mil h 1 t : constroiMSet (dropwhile'' h t)
@@ -367,7 +367,7 @@ caminho (x,y) (x2,y2) | x > x2 = Oeste : caminho (x-1,y) (x2,y2)
                       | y < y2 = Norte : caminho (x, y+1) (x2,y2)
                       | otherwise = []
 {-
---47 que feio, tentar otimizar
+--47 feito pelo Simão Quintela
 hasLoops :: (Int, Int) -> [Movimento] -> Bool
 hasLoops (x,y) [] = False
 hasLoops (x,y) (h:t) = case h of
